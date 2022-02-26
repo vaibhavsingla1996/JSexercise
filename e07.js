@@ -142,3 +142,12 @@ console.log(strh, (typeof strh))
 strh = -5/0
 console.log(strh, (typeof strh))
 // output ->  -Infinity number
+
+
+
+// random number
+function random(precision) {
+    return (((new Date()).getMilliseconds())/7).toFixed(precision)
+}
+
+console.log(random(2))
