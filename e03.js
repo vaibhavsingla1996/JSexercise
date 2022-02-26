@@ -123,10 +123,10 @@ constFunctionScopeTest(true)
 
 // funny thing happened
 
-var schoolName = "Doon International School"
+let schoolName = "Doon International School"
 
 if (true) {
-    var schoolName = "ARMY School"
+    let schoolName = "ARMY School"
     console.log(`
 School name:- ${schoolName}
     `)
@@ -147,5 +147,4 @@ School name:- ${collegeName}
 }
 console.log(`
 School name:- ${collegeName}
-`)
-
+`)    
