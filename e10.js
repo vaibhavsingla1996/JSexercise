@@ -44,7 +44,7 @@ console.log(`vertical\vtab`)
 console.log("tab\tadds 6 char worth space")
 console.log("backspace \b removes one char")
 
-
+console.log("\n<--------- String helping functions \ --------->\n")
 // 3. .length
 console.log("12345".length)
 
@@ -107,3 +107,6 @@ console.log('The quick brown fox jumps over the lazy dog.'.includes("the"))
 console.log('The quick brown fox jumps over lazy dog.'.includes("the", 1))
 // output -> false
 // second argument is index from where the search start.
+
+
+console.log("\n<--------- randomWord function \ --------->\n")
