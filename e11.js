@@ -70,11 +70,22 @@ console.log(arr)
 
 
 console.log("\n<--------- splice(from, to) --------->\n")
+const newArr = arr.splice(1, 1)
+console.log(newArr)
+
+arr = [1, 2, 3, 4, 5, 6]
+console.log(arr)
 
 console.log("\n<--------- reverse() --------->\n")
+console.log(arr.reverse())
 
 console.log("\n<--------- concat(array) --------->\n")
+console.log(arr.concat(["1", "2", "3"]))
+
 
 console.log("\n<--------- sort(func) --------->\n")
+console.log(arr.sort())
 
 console.log("\n<--------- find(func) --------->\n")
+arr = [2, 4, 6, 1]
+console.log(arr.find(element => element > 5))
