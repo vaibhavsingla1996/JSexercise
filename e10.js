@@ -1,15 +1,4 @@
 /*
-Write a program 
-
-1. FUNCTION randomWord(WORD LENGTH: Int) -> RETURNS RANDOM WORD 
-
-- Above program should be expanded where it takes another arguments to cater Output and conversion in 
-
-- UPPERFLATCASE
-- camelCase
-- PascalCase
-- MACRO_CASE
-- camel_Snake_Case
  
 You can take more arguments for given function syntax to extend the program for right results. 
 
@@ -110,3 +99,142 @@ console.log('The quick brown fox jumps over lazy dog.'.includes("the", 1))
 
 
 console.log("\n<--------- randomWord function \ --------->\n")
+// FUNCTION randomWord(WORD LENGTH: Int) -> RETURNS RANDOM WORD 
+function randomWord(length) {
+    let randomString = ""
+    for (let i = 0; i < length; i++) {
+        const num = randomNumber(65, 91)
+        const charCode = String.fromCharCode(num)
+        randomString += charCode
+    }
+    return randomString
+}
+
+function randomNumber(min, max) {
+    return Math.floor((Math.random() * (max-min)) + min)
+}
+
+console.log(randomWord(10))
+
+
+const WritingStyle = {
+    upparFlatCase: 1,
+    camelCase: 2,
+    pascalCase: 3,
+    macroCase: 4,
+    camelSnakeCase: 5
+ }
+
+ Object.freeze(WritingStyle)
+
+ let selectedWritingStyle = WritingStyle.camelCase
+
+ function randomWordWithWritingStyle(length, style = WritingStyle.camelCase) {
+    let randomString = ""
+
+    // creating random string
+    for (let i = 0; i < length; i++) {
+        const num = randomNumber(65, 91)
+        let charCode = String.fromCharCode(num)
+
+        // adding space to create multiple words
+        if (i % 3 == 1) {
+            randomString += " "    
+        }
+        randomString += charCode
+    }
+
+    // converting into selected writing style
+
+    // converting into camelCase
+    if (style == WritingStyle.camelCase) {
+
+        // spliting string based on " "
+        const arr = randomString.split(" ")
+        randomString = ""
+        
+        for (i=0; i<arr.length; i++) {
+            if (i == 0) {
+                // getting first index and making it lowecase
+                randomString += arr[i].toLowerCase()
+            } else {
+                // getting first index and making it uppercase
+                const firstChar = arr[i].charAt(0).toUpperCase()
+
+                // getting rest of String and making it lowercase 
+                const remainingString = arr[i].slice(1).toLowerCase()
+
+                // joining both strings
+                randomString += (firstChar + remainingString)
+            }
+        }
+    } else if (style == WritingStyle.upparFlatCase) {
+        // converting into UPPERFLATCASE
+        randomString = randomString.replaceAll(" ", "").toUpperCase()
+    } else if (style == WritingStyle.macroCase) {
+        // converting into MACRO_CASE
+        // spliting string based on " "
+        const arr = randomString.split(" ")
+        randomString = ""
+        
+        for (i=0; i<arr.length; i++) {
+            // converting elements into upper case
+            randomString += arr[i].toUpperCase()
+
+            // add _ after every array element
+            if (i != arr.length-1) {
+                randomString += "_"
+            }
+        }
+    } else if (style == WritingStyle.pascalCase) {
+        // converting into PascalCase
+        console.log("PascalCase")
+        // spliting string based on " "
+        const arr = randomString.split(" ")
+        randomString = ""
+        
+        for (i=0; i<arr.length; i++) {
+            // getting first index and making it uppercase
+            const firstChar = arr[i].charAt(0).toUpperCase()
+
+            // getting rest of String and making it lowercase 
+            const remainingString = arr[i].slice(1).toLowerCase()
+
+            // joining both strings
+            randomString += (firstChar + remainingString)
+        }
+    } else if (style == WritingStyle.camelSnakeCase) {
+        // converting into camel_Snake_Case
+        console.log("PascalCase")
+        // spliting string based on " "
+        const arr = randomString.split(" ")
+        randomString = ""
+        for (i=0; i<arr.length; i++) {
+            if (i == 0) {
+                // getting first index and making it lowecase
+                randomString += arr[i].toLowerCase()
+            } else {
+                // getting first index and making it uppercase
+                const firstChar = arr[i].charAt(0).toUpperCase()
+
+                // getting rest of String and making it lowercase 
+                const remainingString = arr[i].slice(1).toLowerCase()
+
+                // joining both strings
+                randomString += (firstChar + remainingString)
+            }
+            // add _ after every array element
+            if (i != arr.length-1) {
+                randomString += "_"
+            }
+        }
+    }
+    return randomString
+}
+
+
+console.log(randomWordWithWritingStyle(14, WritingStyle.camelCase))
+console.log(randomWordWithWritingStyle(14, WritingStyle.upparFlatCase))
+console.log(randomWordWithWritingStyle(14, WritingStyle.macroCase))
+console.log(randomWordWithWritingStyle(14, WritingStyle.pascalCase))
+console.log(randomWordWithWritingStyle(14, WritingStyle.camelSnakeCase))
